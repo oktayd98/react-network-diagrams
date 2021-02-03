@@ -97,7 +97,7 @@ function test() {
   return (
     <Resizable
       style={{
-        background: '#ddd',
+        background: '#fff',
         borderStyle: 'solid',
         borderColor: 'pink',
       }}
