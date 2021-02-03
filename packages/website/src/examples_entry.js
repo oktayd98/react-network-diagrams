@@ -12,30 +12,32 @@
 // Export all of the examples
 //
 
-import basic from "./examples/basic/Index";
-import concatenated from "./examples/concatenated/Index";
-import connection from "./examples/connection/Index";
-import editor from "./examples/editor/Index";
-import endpoint from "./examples/endpoint/Index";
-import legend from "./examples/legend/Index";
-import map from "./examples/map/Index";
-import parallel from "./examples/parallel/Index";
-import patchpanel from "./examples/patchpanel/Index";
-import paths from "./examples/paths/Index";
-import equipment from "./examples/equipment/Index";
-import rack from "./examples/rack/Index";
+import basic from './examples/basic/Index';
+import concatenated from './examples/concatenated/Index';
+import connection from './examples/connection/Index';
+import editor from './examples/editor/Index';
+import endpoint from './examples/endpoint/Index';
+import legend from './examples/legend/Index';
+import map from './examples/map/Index';
+import parallel from './examples/parallel/Index';
+import patchpanel from './examples/patchpanel/Index';
+import paths from './examples/paths/Index';
+import equipment from './examples/equipment/Index';
+import rack from './examples/rack/Index';
+import test from './examples/test/Index';
 
 export default {
-    ...basic,
-    ...concatenated,
-    ...connection,
-    ...editor,
-    ...endpoint,
-    ...legend,
-    ...map,
-    ...parallel,
-    ...patchpanel,
-    ...paths,
-    ...equipment,
-    ...rack
+  ...basic,
+  ...concatenated,
+  ...connection,
+  ...editor,
+  ...endpoint,
+  ...legend,
+  ...map,
+  ...parallel,
+  ...patchpanel,
+  ...paths,
+  ...equipment,
+  ...rack,
+  ...test,
 };
