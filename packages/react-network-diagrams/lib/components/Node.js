@@ -50,6 +50,7 @@ var Node = exports.Node = function (_React$Component) {
       if (this.props.onSelectionChange) {
         this.props.onSelectionChange('node', id);
       }
+      console.log(id);
     }
   }, {
     key: 'handleMouseOver',

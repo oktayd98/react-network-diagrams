@@ -49,6 +49,7 @@ export class Node extends React.Component {
     if (this.props.onSelectionChange) {
       this.props.onSelectionChange('node', id);
     }
+    console.log(id);
   }
 
   handleMouseOver() {}
