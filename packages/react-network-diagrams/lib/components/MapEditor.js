@@ -404,17 +404,17 @@ var MapEditor = exports.MapEditor = function (_React$Component) {
     key: 'handleSubmitTopo',
     value: function handleSubmitTopo() {
       var topo = this.buildTopology();
-      console.log(topo);
-      // fetch('http://127.0.0.1:3000/', {
-      //   method: 'POST',
-      //   headers: {
-      //     Accept: 'application/json',
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({ topo: topo }),
-      // }).then((res) => {
-      //   console.log(res);
-      // });
+
+      fetch('http://127.0.0.1:3000/', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ topo: topo })
+      }).then(function (res) {
+        console.log(res);
+      });
     }
   }, {
     key: 'handleAddSelection',

@@ -318,17 +318,17 @@ export class MapEditor extends React.Component {
 
   handleSubmitTopo() {
     const topo = this.buildTopology();
-    console.log(topo);
-    // fetch('http://127.0.0.1:3000/', {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({ topo: topo }),
-    // }).then((res) => {
-    //   console.log(res);
-    // });
+
+    fetch('http://127.0.0.1:3000/', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ topo: topo }),
+    }).then((res) => {
+      console.log(res);
+    });
   }
 
   handleAddSelection(node) {

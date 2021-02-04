@@ -25,15 +25,18 @@ import editor_thumbnail from './editor_thumbnail.png';
 class editor extends React.Component {
   constructor(props) {
     super(props);
-    const topo = topoJSON;
 
     // Add ids to the topology if needed
-    _.each(topo.nodes, (node) => {
-      node.id = _.has(node, 'id') ? node.id : this.makeId();
-    });
+    if (this.state.topo) {
+      const temp = this.state.topo;
+      _.each(temp.nodes, (node) => {
+        node.id = _.has(node, 'id') ? node.id : this.makeId();
+      });
+      this.setState({ topo: temp });
+    }
 
     this.state = {
-      topo,
+      topo: null,
       mode: null,
       display: 'editor',
       gridSize: 0.5,
@@ -144,8 +147,8 @@ class editor extends React.Component {
     const nodeSizeMap = {
       hub: 5.5,
       esnet_site: 7,
-      server: 25,
-      network: 25,
+      server: 20,
+      network: 20,
     };
 
     // Mapping of node name to shape (default is circle, other
@@ -260,9 +263,7 @@ class editor extends React.Component {
               activeKey={this.state.display}
               onSelect={this.handleNavToggle}
             >
-              <NavItem eventKey={'editor'} href="/home">
-                Editor
-              </NavItem>
+              <NavItem eventKey={'editor'}>Editor</NavItem>
               <NavItem eventKey={'topo'} title="Item">
                 Topo
               </NavItem>

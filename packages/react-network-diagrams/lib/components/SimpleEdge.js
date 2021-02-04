@@ -137,9 +137,9 @@ var SimpleEdge = exports.SimpleEdge = function (_React$Component) {
           labelOffsetY: this.props.labelOffsetY,
           textAnchor: this.props.textAnchor,
           color: this.props.color,
-          width: 15,
+          width: this.props.width,
           selected: this.props.selected,
-          muted: this.props.muted,
+          muted: false,
           classed: classed,
           arrow: this.props.arrow,
           arrowWidth: this.props.arrowWidth,
@@ -217,8 +217,8 @@ SimpleEdge.propTypes = {
 };
 
 SimpleEdge.defaultProps = {
-  color: '#0062ff',
-  width: 10,
+  color: '#0090a3',
+  width: 3,
   position: 0,
   selected: false,
   muted: false,
