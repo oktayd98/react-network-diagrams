@@ -16,6 +16,7 @@ import Select from 'react-select';
 import { BaseMap } from './BaseMap';
 import { Node } from './Node';
 import { Resizable } from './Resizable';
+import PropModal from './PropModal';
 
 let counter = 1;
 
@@ -33,6 +34,7 @@ export class MapEditor extends React.Component {
     this.handleDeleteEdge = this.handleDeleteEdge.bind(this);
     this.handleDeleteNode = this.handleDeleteNode.bind(this);
     this.handleSubmitTopo = this.handleSubmitTopo.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
 
   constrain(x, y) {
@@ -318,7 +320,7 @@ export class MapEditor extends React.Component {
 
   handleSubmitTopo() {
     const topo = this.buildTopology();
-
+    console.log(topo);
     fetch('http://127.0.0.1:3000/', {
       method: 'POST',
       headers: {
@@ -326,9 +328,11 @@ export class MapEditor extends React.Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ topo: topo }),
-    }).then((res) => {
-      console.log(res);
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
   }
 
   handleAddSelection(node) {
@@ -494,10 +498,16 @@ export class MapEditor extends React.Component {
     }
 
     return (
-      <table width="100%">
-        <tbody>{propertyElements}</tbody>
-      </table>
+      <PropModal show>
+        <table width="100%">
+          <tbody>{propertyElements}</tbody>
+        </table>
+      </PropModal>
     );
+  }
+
+  handleClose() {
+    this.setState({ showModal: false });
   }
 
   renderEdgeProperties() {

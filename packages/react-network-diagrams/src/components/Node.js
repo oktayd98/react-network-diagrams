@@ -46,10 +46,11 @@ export class Node extends React.Component {
   handMouseClick(e) {
     e.stopPropagation();
     const id = this.props.id || this.props.name;
+    const node = this.props;
     if (this.props.onSelectionChange) {
       this.props.onSelectionChange('node', id);
     }
-    console.log(id);
+    console.log(node);
   }
 
   handleMouseOver() {}

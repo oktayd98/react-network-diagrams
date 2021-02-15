@@ -29,6 +29,10 @@ var _Node = require('./Node');
 
 var _Resizable = require('./Resizable');
 
+var _PropModal = require('./PropModal');
+
+var _PropModal2 = _interopRequireDefault(_PropModal);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -66,6 +70,7 @@ var MapEditor = exports.MapEditor = function (_React$Component) {
     _this.handleDeleteEdge = _this.handleDeleteEdge.bind(_this);
     _this.handleDeleteNode = _this.handleDeleteNode.bind(_this);
     _this.handleSubmitTopo = _this.handleSubmitTopo.bind(_this);
+    _this.handleClose = _this.handleClose.bind(_this);
     return _this;
   }
 
@@ -601,14 +606,23 @@ var MapEditor = exports.MapEditor = function (_React$Component) {
       }
 
       return _react2.default.createElement(
-        'table',
-        { width: '100%' },
+        _PropModal2.default,
+        { show: true },
         _react2.default.createElement(
-          'tbody',
-          null,
-          propertyElements
+          'table',
+          { width: '100%' },
+          _react2.default.createElement(
+            'tbody',
+            null,
+            propertyElements
+          )
         )
       );
+    }
+  }, {
+    key: 'handleClose',
+    value: function handleClose() {
+      this.setState({ showModal: false });
     }
   }, {
     key: 'renderEdgeProperties',

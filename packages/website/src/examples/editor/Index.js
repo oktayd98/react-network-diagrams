@@ -26,6 +26,13 @@ class editor extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      topo: {},
+      mode: null,
+      display: 'editor',
+      gridSize: 0.5,
+    };
+
     // Add ids to the topology if needed
     if (this.state.topo) {
       const temp = this.state.topo;
@@ -34,13 +41,6 @@ class editor extends React.Component {
       });
       this.setState({ topo: temp });
     }
-
-    this.state = {
-      topo: null,
-      mode: null,
-      display: 'editor',
-      gridSize: 0.5,
-    };
 
     this.handleNavToggle = this.handleNavToggle.bind(this);
     this.handleTopoChanged = this.handleTopoChanged.bind(this);

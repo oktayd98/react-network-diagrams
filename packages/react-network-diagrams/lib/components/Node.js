@@ -47,10 +47,11 @@ var Node = exports.Node = function (_React$Component) {
     value: function handMouseClick(e) {
       e.stopPropagation();
       var id = this.props.id || this.props.name;
+      var node = this.props;
       if (this.props.onSelectionChange) {
         this.props.onSelectionChange('node', id);
       }
-      console.log(id);
+      console.log(node);
     }
   }, {
     key: 'handleMouseOver',
